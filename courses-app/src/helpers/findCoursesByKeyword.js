@@ -1,7 +1,8 @@
-import { mockedCoursesList } from '../constants';
-
-export default function findCoursesByKeyword(keyword) {
+export default function findCoursesByKeyword(keyword, mockedCoursesList) {
 	const keywordToLower = keyword.toLowerCase();
+	if (!keyword) {
+		return mockedCoursesList;
+	}
 
 	return mockedCoursesList.filter((course) => {
 		let titleToLower = course.title.toLowerCase();

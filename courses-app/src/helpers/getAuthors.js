@@ -1,5 +1,3 @@
-// import { mockedAuthorsList } from '../constants';
-
 export default function getAuthors(ids, mockedAuthorsList) {
 	let authors = '';
 	ids.forEach(

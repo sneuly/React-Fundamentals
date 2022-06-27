@@ -7,22 +7,22 @@ import styles from './SearchBar.module.css';
 
 const ERROR_MESSAGE = 'No Courses found with this keyword. Try again!';
 
-const SearchBar = ({ setCourses, setError }) => {
+const SearchBar = ({ courses, setError, setDisplayedCourses }) => {
 	const [keyword, setKeyword] = useState('');
 
 	const handleSubmit = () => {
-		if (findCoursesByKeyword(keyword).length === 0) {
+		if (findCoursesByKeyword(keyword, courses).length === 0) {
 			setError(ERROR_MESSAGE);
 		} else {
 			setError('');
-			setCourses(findCoursesByKeyword(keyword));
+			setDisplayedCourses(findCoursesByKeyword(keyword, courses));
 		}
 	};
 
 	const handleReset = () => {
 		if (keyword.length <= 0) {
 			setError('');
-			setCourses(findCoursesByKeyword(keyword));
+			setDisplayedCourses(courses);
 		}
 	};
 

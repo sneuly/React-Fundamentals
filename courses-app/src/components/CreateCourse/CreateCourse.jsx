@@ -43,32 +43,32 @@ const CreateCourse = ({
 	};
 
 	const handleCourseCreate = () => {
-		const isValid = duration && title;
+		const isValid =
+			duration && title && description.length > 2 && authors.length > 0;
 
-		// id: uuidv4(),
-		// title: title,
-		// description: description,
-		// duration: parseInt(duration),
-		// authors: courseAuthors.map((courseAuthor) => courseAuthor.id),
-		// creationDate: getCurrentDate(),
+		if (isValid) {
+			setCourses((prevState) => {
+				return [
+					...prevState,
+					{
+						id: uuidv4(),
+						title,
+						description,
+						duration: parseInt(duration),
+						creationDate: getCurrentDate(),
+						authors: courseAuthors.map((courseAuthor) => courseAuthor.id),
+					},
+				];
+			});
 
-		setCourses((prevState) => {
-			return [
-				...prevState,
-				{
-					id: uuidv4(),
-					title,
-					description,
-					duration: parseInt(duration),
-					creationDate: getCurrentDate(),
-					authors: courseAuthors.map((courseAuthor) => courseAuthor.id),
-				},
-			];
-		});
+			handleCancelation();
 
-		handleCancelation();
-
-		resetForm();
+			resetForm();
+		} else {
+			alert(
+				'All Fields required, description should be more than 2 symbols. Please check the form!'
+			);
+		}
 	};
 
 	const handleAuthorCreate = () => {
