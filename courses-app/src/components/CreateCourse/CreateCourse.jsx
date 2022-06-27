@@ -44,7 +44,7 @@ const CreateCourse = ({
 
 	const handleCourseCreate = () => {
 		const isValid =
-			duration && title && description.length > 2 && authors.length > 0;
+			duration && title && description.length > 2 && courseAuthors.length > 0;
 
 		if (isValid) {
 			setCourses((prevState) => {
@@ -72,16 +72,20 @@ const CreateCourse = ({
 	};
 
 	const handleAuthorCreate = () => {
-		const id = uuidv4();
-		const newAuthor = { id, name: newAuthorName };
+		if (newAuthorName) {
+			const id = uuidv4();
+			const newAuthor = { id, name: newAuthorName };
 
-		setAuthors((prev) => [...prev, newAuthor]);
+			setAuthors((prev) => [...prev, newAuthor]);
 
-		setNewCourse((prev) => {
-			const authorsWithAddition = [newAuthor, ...prev.authors];
+			setNewCourse((prev) => {
+				const authorsWithAddition = [newAuthor, ...prev.authors];
 
-			return { ...prev, newAuthorName: '', authors: authorsWithAddition };
-		});
+				return { ...prev, newAuthorName: '', authors: authorsWithAddition };
+			});
+		} else {
+			alert('Please fill the field to add an author!');
+		}
 	};
 
 	const handleRedirectToCourses = () => {
