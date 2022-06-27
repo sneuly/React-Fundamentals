@@ -18,7 +18,7 @@ function App() {
 				<CreateCourse
 					setCourses={setCourses}
 					setCreateCourse={setCreateCourse}
-					authors={authors}
+					existingAuthors={authors}
 					setAuthors={setAuthors}
 				/>
 			) : (

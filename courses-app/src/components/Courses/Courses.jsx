@@ -14,11 +14,9 @@ const Courses = ({ courses, setCourses, setCreateCourse, authors }) => {
 		<section className={`${styles.coursesContainer} container`}>
 			<div className={styles.header}>
 				<SearchBar setCourses={setCourses} setError={setError} />
-				<Button
-					title='Add new course'
-					className='primary'
-					onClick={toggleCreateCourse}
-				/>
+				<Button className='primary' onClick={toggleCreateCourse}>
+					Add new course
+				</Button>
 			</div>
 
 			<div>

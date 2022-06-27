@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { Button, Input } from '../../../../common';
 import { findCoursesByKeyword } from '../../../../helpers';
@@ -33,11 +33,13 @@ const SearchBar = ({ setCourses, setError }) => {
 					placeholderText='Enter course name or id...'
 					className='searchInput'
 					value={keyword}
-					setValue={setKeyword}
+					onChange={setKeyword}
 					onKeyUp={handleReset}
 					required={false}
 				/>
-				<Button title='Search' className='secondary' onClick={handleSubmit} />
+				<Button className='secondary' onClick={handleSubmit}>
+					Search
+				</Button>
 			</div>
 		</>
 	);

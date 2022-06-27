@@ -7,6 +7,8 @@ const Textarea = ({
 	className = '',
 	required,
 	name,
+	value,
+	onChange,
 }) => {
 	return (
 		<div className={styles.textareaWrapper}>
@@ -18,9 +20,8 @@ const Textarea = ({
 				placeholder={placeholderText}
 				className={`${styles.textarea} ${styles[className]}`}
 				required={required}
-				// value={username}
-				// onChange={(e) => setUsername(e.target.value)}
-				// onKeyUp={(e) => handleSubmit(e)}
+				value={value}
+				onChange={(e) => onChange(e.target.value)}
 			/>
 		</div>
 	);

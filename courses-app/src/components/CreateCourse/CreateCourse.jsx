@@ -1,57 +1,139 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
 import { Button, Input, Textarea } from '../../common';
 import { getCourseDuration, getCurrentDate } from '../../helpers';
+import AuthorItem from './components/AuthorItem/AuthorItem';
 
 import styles from './CreateCourse.module.css';
 
-const DEFAULT_STATE = {
-	id: '',
-	title: '',
-	description: '',
-	duration: 0,
-	creationDate: '',
-	authors: [],
-};
+const CreateCourse = ({
+	setCreateCourse,
+	setCourses,
+	existingAuthors,
+	setAuthors,
+}) => {
+	const INITIAL_STATE = {
+		id: '',
+		title: '',
+		description: '',
+		duration: '',
+		creationDate: '',
+		authors: existingAuthors,
+		newAuthorName: '',
+		courseAuthors: [],
+	};
 
-const CreateCourse = ({ setCreateCourse, setCourses, authors, setAuthors }) => {
-	const [newCourse, setNewCourse] = useState(DEFAULT_STATE);
+	const [newCourse, setNewCourse] = useState(INITIAL_STATE);
 
-	const { title, description, duration, authors: authorsList } = newCourse;
+	const {
+		title,
+		description,
+		duration,
+		authors,
+		courseAuthors,
+		newAuthorName,
+	} = newCourse;
 
-	const resetForm = () => setNewCourse(DEFAULT_STATE);
+	const resetForm = () => setNewCourse(INITIAL_STATE);
 
-	const handleChange = (data) => {
-		setNewCourse((prev) => ({ ...prev, ...data }));
+	const handleChange = (name, value) => {
+		setNewCourse((prev) => ({ ...prev, [name]: value }));
 	};
 
 	const handleCourseCreate = () => {
-		setCourses((prevState) => {
-			const id = uuidv4();
-			const creationDate = getCurrentDate();
+		const isValid = duration && title;
 
-			return [...prevState, { id, creationDate, ...newCourse }];
+		// id: uuidv4(),
+		// title: title,
+		// description: description,
+		// duration: parseInt(duration),
+		// authors: courseAuthors.map((courseAuthor) => courseAuthor.id),
+		// creationDate: getCurrentDate(),
+
+		setCourses((prevState) => {
+			return [
+				...prevState,
+				{
+					id: uuidv4(),
+					title,
+					description,
+					duration: parseInt(duration),
+					creationDate: getCurrentDate(),
+					authors: courseAuthors.map((courseAuthor) => courseAuthor.id),
+				},
+			];
 		});
+
+		handleCancelation();
 
 		resetForm();
 	};
 
 	const handleAuthorCreate = () => {
-		setCourses((prevState) => {
-			const id = uuidv4();
-			const creationDate = getCurrentDate();
+		const id = uuidv4();
+		const newAuthor = { id, name: newAuthorName };
 
-			return [...prevState, { id, creationDate, ...newCourse }];
+		setAuthors((prev) => [...prev, newAuthor]);
+
+		setNewCourse((prev) => {
+			const authorsWithAddition = [newAuthor, ...prev.authors];
+
+			return { ...prev, newAuthorName: '', authors: authorsWithAddition };
 		});
-
-		resetForm();
 	};
 
 	const handleCancelation = () => {
 		setCreateCourse((prev) => !prev);
 	};
+
+	const onAddAuthorClick = (id) => {
+		setNewCourse((prev) => {
+			const selectedAuthor = authors.find((author) => author.id === id);
+
+			const authorRemovedFromList = prev.authors.filter(
+				(author) => author.id !== id
+			);
+
+			const authorAddedToList = [...prev.courseAuthors, selectedAuthor];
+
+			return {
+				...prev,
+				authors: authorRemovedFromList,
+				courseAuthors: authorAddedToList,
+			};
+		});
+	};
+
+	const onRemoveAuthorClick = (id) => {
+		setNewCourse((prev) => {
+			const selectedAuthor = courseAuthors.find((author) => author.id === id);
+
+			const authorRemovedFromList = prev.courseAuthors.filter(
+				(author) => author.id !== id
+			);
+
+			const authorAddedToList = [...prev.authors, selectedAuthor];
+
+			return {
+				...prev,
+				authors: authorAddedToList,
+				courseAuthors: authorRemovedFromList,
+			};
+		});
+	};
+
+	const data = {
+		id: uuidv4(),
+		title: title,
+		description: description,
+		duration: parseInt(duration),
+		authors: courseAuthors.map((courseAuthor) => courseAuthor.id),
+		creationDate: getCurrentDate(),
+	};
+
+	console.log({ data });
 
 	return (
 		<section className={`${styles.createCourseWrapper} container`}>
@@ -61,19 +143,15 @@ const CreateCourse = ({ setCreateCourse, setCourses, authors, setAuthors }) => {
 					placeholderText='Enter title...'
 					value={title}
 					required={true}
-					setValue={handleChange}
+					onChange={(value) => handleChange('title', value)}
 				/>
 				<div className={styles.buttons}>
-					<Button
-						title='Create Course'
-						className='primary'
-						onClick={handleCourseCreate}
-					/>
-					<Button
-						title='Back to Course Listing'
-						className='danger'
-						onClick={handleCancelation}
-					/>
+					<Button className='primary' onClick={handleCourseCreate}>
+						Create Course
+					</Button>
+					<Button className='danger' onClick={handleCancelation}>
+						Back to Course Listing
+					</Button>
 				</div>
 			</div>
 			<div className={styles.row}>
@@ -83,6 +161,7 @@ const CreateCourse = ({ setCreateCourse, setCourses, authors, setAuthors }) => {
 					value={description}
 					minLength={2}
 					required={true}
+					onChange={(value) => handleChange('description', value)}
 				/>
 			</div>
 
@@ -93,12 +172,12 @@ const CreateCourse = ({ setCreateCourse, setCourses, authors, setAuthors }) => {
 						<Input
 							labelText='Author name'
 							placeholderText='Enter author name...'
+							value={newAuthorName}
+							onChange={(value) => handleChange('newAuthorName', value)}
 						/>
-						<Button
-							title='Create author'
-							className='secondary'
-							onClick={handleAuthorCreate}
-						/>
+						<Button className='secondary' onClick={handleAuthorCreate}>
+							Create author
+						</Button>
 					</div>
 					<div className={styles.authorsBlock}>
 						<h2 className={styles.title}>Duration</h2>
@@ -106,9 +185,15 @@ const CreateCourse = ({ setCreateCourse, setCourses, authors, setAuthors }) => {
 							labelText='Duration'
 							type='number'
 							placeholderText='Enter duration in minutes...'
-							pattern='[1-9]+'
-							value={duration === 0 ? '' : duration}
-							onKeyUp={getCourseDuration(duration)}
+							value={duration}
+							required={true}
+							onChange={(value) => {
+								if (value === '0') {
+									handleChange('duration', '');
+								} else {
+									handleChange('duration', value);
+								}
+							}}
 						/>
 
 						<div className={styles.duration}>
@@ -119,17 +204,26 @@ const CreateCourse = ({ setCreateCourse, setCourses, authors, setAuthors }) => {
 				<div>
 					<div className={styles.authorsBlock}>
 						<h2 className={styles.title}>Authors</h2>
-						<Input
-							labelText='Author name'
-							placeholderText='Enter author name...'
-						/>
+						<div>
+							{authors.map((author) => (
+								<AuthorItem
+									key={author.id}
+									author={author}
+									onClick={onAddAuthorClick}
+								/>
+							))}
+						</div>
 					</div>
 					<div className={styles.authorsBlock}>
 						<h2 className={styles.title}>Course authors</h2>
-						<Input
-							labelText='Duration'
-							placeholderText='Enter duration in minutes...'
-						/>
+						{courseAuthors.map((author) => (
+							<AuthorItem
+								key={author.id}
+								author={author}
+								type='delete'
+								onClick={onRemoveAuthorClick}
+							/>
+						))}
 					</div>
 				</div>
 			</div>

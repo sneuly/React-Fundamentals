@@ -37,7 +37,7 @@ const CourseCard = ({ course, authors }) => {
 					value={formatCreationDate(creationDate)}
 				/>
 
-				<Button title='Show Course' type='primary' />
+				<Button type='primary'>Show Course</Button>
 			</div>
 		</article>
 	);

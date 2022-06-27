@@ -7,8 +7,8 @@ const Input = ({
 	pattern = '',
 	name,
 	value,
-	setValue,
-	onKeyUp,
+	onChange,
+	onKeyUp = () => {},
 	className = '',
 }) => {
 	return (
@@ -21,7 +21,7 @@ const Input = ({
 				placeholder={placeholderText}
 				className={`${styles.input} ${styles[className]}`}
 				value={value}
-				onChange={(e) => setValue(e.target.value)}
+				onChange={(e) => onChange(e.target.value)}
 				onKeyUp={(e) => onKeyUp(e.target.value)}
 			/>
 		</div>
