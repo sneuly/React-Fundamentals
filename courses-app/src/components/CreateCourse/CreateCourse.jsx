@@ -124,17 +124,6 @@ const CreateCourse = ({
 		});
 	};
 
-	const data = {
-		id: uuidv4(),
-		title: title,
-		description: description,
-		duration: parseInt(duration),
-		authors: courseAuthors.map((courseAuthor) => courseAuthor.id),
-		creationDate: getCurrentDate(),
-	};
-
-	console.log({ data });
-
 	return (
 		<section className={`${styles.createCourseWrapper} container`}>
 			<div className={styles.row}>
@@ -204,26 +193,38 @@ const CreateCourse = ({
 				<div>
 					<div className={styles.authorsBlock}>
 						<h2 className={styles.title}>Authors</h2>
-						<div>
-							{authors.map((author) => (
-								<AuthorItem
-									key={author.id}
-									author={author}
-									onClick={onAddAuthorClick}
-								/>
-							))}
-						</div>
+						{!authors.length ? (
+							<p className={styles.errorMessage}>
+								There are not any more authors. Please create a new author!
+							</p>
+						) : (
+							<div>
+								{authors.map((author) => (
+									<AuthorItem
+										key={author.id}
+										author={author}
+										onClick={onAddAuthorClick}
+									/>
+								))}
+							</div>
+						)}
 					</div>
 					<div className={styles.authorsBlock}>
 						<h2 className={styles.title}>Course authors</h2>
-						{courseAuthors.map((author) => (
-							<AuthorItem
-								key={author.id}
-								author={author}
-								type='delete'
-								onClick={onRemoveAuthorClick}
-							/>
-						))}
+						{!courseAuthors.length ? (
+							<p className={styles.errorMessage}>Authors list is empty!</p>
+						) : (
+							<div>
+								{courseAuthors.map((author) => (
+									<AuthorItem
+										key={author.id}
+										author={author}
+										type='delete'
+										onClick={onRemoveAuthorClick}
+									/>
+								))}
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
