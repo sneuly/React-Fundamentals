@@ -1,0 +1,14 @@
+.courseDetail {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.authors .value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

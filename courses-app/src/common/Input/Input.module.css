@@ -1,0 +1,32 @@
+.inputWrapper {
+  margin-right: 20px;
+}
+
+.inputWrapper label {
+  display: inline-block;
+  margin-bottom: 7px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 70px 10px 24px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #575756;
+  background-color: transparent;
+  border: 2px solid #FFD300;
+  transition: all .2s ease-in-out;
+}
+
+.input:hover,
+.input:focus {
+  outline: 0;
+  border: 2px solid 	#c4a500;
+}
+
+.input::placeholder {
+  color: #575756;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+

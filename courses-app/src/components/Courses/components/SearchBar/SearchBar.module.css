@@ -1,0 +1,44 @@
+.searchBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  margin-bottom: 60px;
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  color: tomato;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 130px 18px 24px;
+  font-size: 14px;
+  line-height: 18px;
+  color: #575756;
+  background-color: transparent;
+  border-radius: 50px;
+  border: 1px solid #575756;
+  transition: all 250ms ease-in-out;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.input:hover,
+.input:focus {
+  outline: 0;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #575756;
+  border-radius: 0;
+  background-position: 100% center;
+}
+
+.input::placeholder {
+  color: #575756;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+

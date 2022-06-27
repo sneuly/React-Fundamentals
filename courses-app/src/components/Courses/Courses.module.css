@@ -1,0 +1,14 @@
+.coursesContainer {
+  padding: 40px 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.errorMsg {
+  margin: 4rem;
+  text-align: center;
+}

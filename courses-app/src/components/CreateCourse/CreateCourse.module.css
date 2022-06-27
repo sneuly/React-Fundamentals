@@ -1,0 +1,58 @@
+.createCourseWrapper {
+  padding: 40px 0;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 1.5rem;
+}
+
+.row textarea {
+  width: 100%;
+  height: 80px;
+}
+
+.authors {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 60px;
+  justify-content: space-between;
+  border: 2px solid purple;
+  padding: 40px;
+}
+
+.authorsBlock {
+  margin-bottom: 3rem;
+}
+
+.addAuthor button {
+  display: block;
+  margin: 1.5rem auto 0;
+}
+
+.title {
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.duration {
+  font-size: 22px;
+  margin-top: 30px
+}
+
+.duration span {
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons button:first-child {
+  margin-right: 20px;
+}

@@ -1,0 +1,32 @@
+
+.textareaWrapper label {
+  display: block;
+  margin-bottom: 7px;
+}
+
+.textareaWrapper {
+  width: 100%;
+}
+
+.textarea {
+  padding: 10px 70px 10px 24px;
+  border: 2px solid orange;
+  font-size: 14px;
+  line-height: 18px;
+  color: #575756;
+  background-color: transparent;
+  transition: all .2s ease-in-out;
+}
+
+.textarea:hover,
+.textarea:focus {
+  outline: 0;
+  border: 2px solid 	#c4a500;
+}
+
+.textarea::placeholder {
+  color: #575756;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+

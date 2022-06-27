@@ -1,0 +1,35 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+}
+
+.button:hover {
+  filter: brightness(90%);
+}
+
+.primary {
+  color: #fff;
+  background: #1ba5d8;
+}
+
+.secondary {
+  color: #1ba5d8;
+  background: #fff;
+  border: 2px solid #1ba5d8;
+}
+
+.danger {
+  color: #fff;
+  background: #c0392b;
+}
+

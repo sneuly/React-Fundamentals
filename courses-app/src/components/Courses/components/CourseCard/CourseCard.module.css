@@ -1,0 +1,24 @@
+.courseCard {
+  display: flex;
+  padding: 2rem;
+  border: 1px solid green;
+  margin-bottom: 2rem;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+/* .mainDescription {
+  width: 85%;
+} */
+
+.detailsWrapper {
+  width: 30%;
+  margin-left: 50px;
+}
+
+.detailsWrapper button {
+  display: block;
+  margin: 0 auto;
+}
