@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './Textarea.module.css';
 
 const Textarea = ({
@@ -25,6 +27,17 @@ const Textarea = ({
 			/>
 		</div>
 	);
+};
+
+Textarea.propTypes = {
+	labelText: PropTypes.string,
+	placeHolderText: PropTypes.string,
+	minLength: PropTypes.number,
+	className: PropTypes.string,
+	required: PropTypes.bool,
+	name: PropTypes.string,
+	value: PropTypes.string,
+	onChange: PropTypes.func,
 };
 
 export default Textarea;

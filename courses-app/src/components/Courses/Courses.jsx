@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import { Button } from '../../common';
 import { SearchBar, CourseListing } from '../index';
@@ -33,6 +34,12 @@ const Courses = ({ courses, setCreateCourse, authors }) => {
 			</div>
 		</section>
 	);
+};
+
+Courses.propTypes = {
+	courses: PropTypes.array,
+	authors: PropTypes.array,
+	setCreateCourse: PropTypes.func,
 };
 
 export default Courses;

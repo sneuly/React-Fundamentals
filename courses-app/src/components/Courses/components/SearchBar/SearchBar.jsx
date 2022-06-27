@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import PropTypes from 'prop-types';
+
 import { Button, Input } from '../../../../common';
 import { findCoursesByKeyword } from '../../../../helpers';
 
@@ -43,6 +45,12 @@ const SearchBar = ({ courses, setError, setDisplayedCourses }) => {
 			</div>
 		</>
 	);
+};
+
+SearchBar.propTypes = {
+	courses: PropTypes.array,
+	setError: PropTypes.func,
+	setDisplayedCourses: PropTypes.func,
 };
 
 export default SearchBar;

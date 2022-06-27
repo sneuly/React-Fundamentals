@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Button } from '../../../../common';
 
 import styles from './AuthorItem.module.css';
@@ -17,6 +19,12 @@ const AuthorItem = ({ author, type, onClick }) => {
 			</Button>
 		</div>
 	);
+};
+
+AuthorItem.propTypes = {
+	author: PropTypes.object,
+	type: PropTypes.string,
+	onClick: PropTypes.func,
 };
 
 export default AuthorItem;

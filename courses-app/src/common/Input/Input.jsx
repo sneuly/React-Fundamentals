@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './Input.module.css';
 
 const Input = ({
@@ -26,6 +28,18 @@ const Input = ({
 			/>
 		</div>
 	);
+};
+
+Input.propTypes = {
+	labelText: PropTypes.string,
+	placeHolderText: PropTypes.string,
+	type: PropTypes.string,
+	pattern: PropTypes.string,
+	name: PropTypes.string,
+	value: PropTypes.string,
+	className: PropTypes.string,
+	onChange: PropTypes.func,
+	onKeyUp: PropTypes.func,
 };
 
 export default Input;

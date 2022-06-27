@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import styles from './CourseDetail.module.css';
 
 const CourseDetail = ({ title, value, className = '' }) => (
@@ -6,5 +8,11 @@ const CourseDetail = ({ title, value, className = '' }) => (
 		<span className={styles.value}>{value}</span>
 	</div>
 );
+
+CourseDetail.propTypes = {
+	title: PropTypes.string,
+	value: PropTypes.string,
+	className: PropTypes.string,
+};
 
 export default CourseDetail;

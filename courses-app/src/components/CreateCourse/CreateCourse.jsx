@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -234,6 +235,14 @@ const CreateCourse = ({
 			</div>
 		</section>
 	);
+};
+
+CreateCourse.propTypes = {
+	courses: PropTypes.array,
+	setCourses: PropTypes.func,
+	authors: PropTypes.array,
+	setAuthors: PropTypes.func,
+	setCreateCourse: PropTypes.func,
 };
 
 export default CreateCourse;

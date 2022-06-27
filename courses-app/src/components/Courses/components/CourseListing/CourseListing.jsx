@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { CourseCard } from '../../../index';
 
 import styles from './CourseListing.module.css';
@@ -10,6 +12,11 @@ const CourseListing = ({ courses, authors }) => {
 			))}
 		</div>
 	);
+};
+
+CourseListing.propTypes = {
+	courses: PropTypes.array,
+	authors: PropTypes.array,
 };
 
 export default CourseListing;

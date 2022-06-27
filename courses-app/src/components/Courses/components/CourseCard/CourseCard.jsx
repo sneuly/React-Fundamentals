@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Button } from '../../../../common';
 import { CourseDetail } from '../../../index';
 
@@ -41,6 +43,11 @@ const CourseCard = ({ course, authors }) => {
 			</div>
 		</article>
 	);
+};
+
+CourseCard.propTypes = {
+	courses: PropTypes.array,
+	authors: PropTypes.array,
 };
 
 export default CourseCard;
