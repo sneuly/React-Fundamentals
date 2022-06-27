@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { v4 as uuidv4 } from 'uuid';
 
 import { Button, Input, Textarea } from '../../common';
 import { getCourseDuration, getCurrentDate } from '../../helpers';
-import AuthorItem from './components/AuthorItem/AuthorItem';
+import { AuthorItem } from '../../components/index';
 
 import styles from './CreateCourse.module.css';
 
@@ -61,7 +61,7 @@ const CreateCourse = ({
 				];
 			});
 
-			handleCancelation();
+			handleRedirectToCourses();
 
 			resetForm();
 		} else {
@@ -84,7 +84,7 @@ const CreateCourse = ({
 		});
 	};
 
-	const handleCancelation = () => {
+	const handleRedirectToCourses = () => {
 		setCreateCourse((prev) => !prev);
 	};
 
@@ -149,7 +149,7 @@ const CreateCourse = ({
 					<Button className='primary' onClick={handleCourseCreate}>
 						Create Course
 					</Button>
-					<Button className='danger' onClick={handleCancelation}>
+					<Button className='danger' onClick={handleRedirectToCourses}>
 						Back to Course Listing
 					</Button>
 				</div>
