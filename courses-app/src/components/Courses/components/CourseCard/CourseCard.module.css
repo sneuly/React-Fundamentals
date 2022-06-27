@@ -1,21 +1,18 @@
 .courseCard {
-  display: flex;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-column-gap: 50px;
+  margin-bottom: 2rem;
   padding: 2rem;
   border: 1px solid green;
-  margin-bottom: 2rem;
 }
 
 .title {
   margin-bottom: 1rem;
 }
 
-/* .mainDescription {
-  width: 85%;
-} */
-
-.detailsWrapper {
-  width: 30%;
-  margin-left: 50px;
+.mainDescription, .detailsWrapper {
+  min-width: 0
 }
 
 .detailsWrapper button {

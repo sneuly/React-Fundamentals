@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-import { Button, Loader } from '../../common';
+import { Button } from '../../common';
 import { SearchBar, CourseListing } from '../index';
 
 import styles from './Courses.module.css';
 
-const Courses = ({ courses, setCourses, setCreateCourse, authors }) => {
+const Courses = ({ courses, setCreateCourse, authors }) => {
 	const [displayedCourses, setDisplayedCourses] = useState(courses);
 	const [error, setError] = useState(false);
 

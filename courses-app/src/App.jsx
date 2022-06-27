@@ -24,7 +24,6 @@ function App() {
 			) : (
 				<Courses
 					courses={courses}
-					setCourses={setCourses}
 					setCreateCourse={setCreateCourse}
 					authors={authors}
 				/>

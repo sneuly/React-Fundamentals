@@ -10,7 +10,7 @@ const Header = () => {
 
 			<div className={styles.leftSide}>
 				<h3 className={styles.name}>Mariami</h3>
-				<Button title='Logout' className='danger' />
+				<Button className='danger'>Logout</Button>
 			</div>
 		</header>
 	);
