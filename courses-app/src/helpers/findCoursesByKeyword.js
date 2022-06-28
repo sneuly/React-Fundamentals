@@ -1,12 +1,13 @@
-export default function findCoursesByKeyword(keyword, mockedCoursesList) {
-	const keywordToLower = keyword.toLowerCase();
+export default function findCoursesByKeyword(keyword, courses) {
 	if (!keyword) {
-		return mockedCoursesList;
+		return courses;
 	}
 
-	return mockedCoursesList.filter((course) => {
-		let titleToLower = course.title.toLowerCase();
-		let idToLower = course.id.toLowerCase();
+	const keywordToLower = keyword.toLowerCase();
+
+	return courses.filter((course) => {
+		const titleToLower = course.title.toLowerCase();
+		const idToLower = course.id.toLowerCase();
 
 		return (
 			titleToLower.includes(keywordToLower) ||
