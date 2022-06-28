@@ -4,6 +4,9 @@ import { Button } from '../../../../common';
 
 import styles from './AuthorItem.module.css';
 
+const classNameMap = { delete: 'danger', create: 'primary' };
+const actionsMap = { delete: 'Remove Author', create: 'Add Author' };
+
 const AuthorItem = ({ author, type, onClick }) => {
 	const { name } = author;
 
@@ -11,11 +14,8 @@ const AuthorItem = ({ author, type, onClick }) => {
 		<div className={styles.authorItem}>
 			<p>{name}</p>
 
-			<Button
-				onClick={() => onClick(author.id)}
-				className={type === 'delete' ? 'danger' : 'primary'}
-			>
-				{type === 'delete' ? 'Remove Author' : 'Add Author'}
+			<Button onClick={() => onClick(author.id)} className={classNameMap[type]}>
+				{actionsMap[type]}
 			</Button>
 		</div>
 	);

@@ -2,7 +2,7 @@ import { Button, Input, Textarea } from '../../../../common';
 
 import AuthorItem from '../AuthorItem/AuthorItem';
 
-import styles from './CourseForm.css';
+import styles from './CourseForm.module.css';
 
 const CourseForm = ({
 	title,
@@ -98,6 +98,7 @@ const CourseForm = ({
 									<AuthorItem
 										key={author.id}
 										author={author}
+										type='create'
 										onClick={onAddAuthorClick}
 									/>
 								))}
