@@ -3,31 +3,10 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button, Input } from '../../../../common';
-import { findCoursesByKeyword } from '../../../../helpers';
 
 import styles from './SearchBar.module.css';
 
-const ERROR_MESSAGE = 'No Courses found with this keyword. Try again!';
-
-const SearchBar = ({ courses, setError, setDisplayedCourses }) => {
-	const [keyword, setKeyword] = useState('');
-
-	const handleSubmit = () => {
-		if (findCoursesByKeyword(keyword, courses).length === 0) {
-			setError(ERROR_MESSAGE);
-		} else {
-			setError('');
-			setDisplayedCourses(findCoursesByKeyword(keyword, courses));
-		}
-	};
-
-	const handleReset = () => {
-		if (keyword.length <= 0) {
-			setError('');
-			setDisplayedCourses(courses);
-		}
-	};
-
+const SearchBar = ({ keyword, setKeyword, handleReset, handleSubmit }) => {
 	return (
 		<>
 			<div className={styles.searchBar}>
