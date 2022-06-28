@@ -11,14 +11,9 @@ import {
 
 import styles from './CourseCard.module.css';
 
-const CourseCard = ({ course, authors }) => {
-	const {
-		title,
-		description,
-		creationDate,
-		duration,
-		authors: authorIds,
-	} = course;
+const CourseCard = ({ course }) => {
+	const { title, description, creationDate, duration, authors } = course;
+	const courseAuthorNames = authors.map((a) => a.name).join(',');
 
 	return (
 		<article className={styles.courseCard}>
@@ -30,7 +25,7 @@ const CourseCard = ({ course, authors }) => {
 			<div className={styles.detailsWrapper}>
 				<CourseDetail
 					title='Authors'
-					value={getAuthors(authorIds, authors)}
+					value={courseAuthorNames}
 					className='authors'
 				/>
 				<CourseDetail title='Duration' value={getCourseDuration(duration)} />

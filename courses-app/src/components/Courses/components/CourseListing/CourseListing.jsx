@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 
 import { CourseCard } from '../../../index';
 
-const CourseListing = ({ courses, authors }) => {
+const CourseListing = ({ courses }) => {
 	return (
 		<div>
 			{courses.map((course) => (
-				<CourseCard key={course.id} course={course} authors={authors} />
+				<CourseCard key={course.id} course={course} />
 			))}
 		</div>
 	);
