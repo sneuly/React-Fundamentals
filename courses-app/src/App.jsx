@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
-import { Header, Courses, CreateCourse } from './components';
+import { Courses, CreateCourse } from './pages';
+import { Header } from '../src/components';
+
 import { mockedCoursesList, mockedAuthorsList } from './constants';
 
 import './App.css';

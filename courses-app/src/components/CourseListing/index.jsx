@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { CourseCard } from '../../../index';
+import { CourseCard } from '../';
 
 const CourseListing = ({ courses }) => {
 	return (

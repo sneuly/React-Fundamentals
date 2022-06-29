@@ -1,4 +1,4 @@
-import { Logo } from '../index';
+import { Logo } from '..';
 import { Button } from '../../common';
 
 import styles from './Header.module.css';

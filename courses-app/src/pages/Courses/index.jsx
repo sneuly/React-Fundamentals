@@ -2,10 +2,11 @@ import { useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Button } from '../../common';
-import { SearchBar, CourseListing } from '../index';
+import { SearchBar, CourseListing } from '../../components';
+
+import { getAuthors, findCoursesByKeyword } from '../../helpers';
 
 import styles from './Courses.module.css';
-import { getAuthors, findCoursesByKeyword } from '../../helpers';
 
 const ERROR_MESSAGE = 'No Courses found with this keyword. Try again!';
 

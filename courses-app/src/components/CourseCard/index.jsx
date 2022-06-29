@@ -1,13 +1,9 @@
 import PropTypes from 'prop-types';
 
-import { Button } from '../../../../common';
-import { CourseDetail } from '../../../index';
+import { Button } from '../../common';
+import { CourseDetail } from '../';
 
-import {
-	getAuthors,
-	formatCreationDate,
-	getCourseDuration,
-} from '../../../../helpers';
+import { formatCreationDate, getCourseDuration } from '../../helpers';
 
 import styles from './CourseCard.module.css';
 

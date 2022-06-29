@@ -1,6 +1,6 @@
-import { Button, Input, Textarea } from '../../../../common';
+import { Button, Input, Textarea } from '../../common';
 
-import AuthorItem from '../AuthorItem/AuthorItem';
+import { AuthorItem } from '../';
 
 import styles from './CourseForm.module.css';
 

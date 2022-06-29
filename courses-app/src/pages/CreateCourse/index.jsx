@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 import { getCourseDuration, getCurrentDate } from '../../helpers';
-import CourseForm from './components/CourseForm/CourseForm';
+import { CourseForm } from '../../components';
 
 const CreateCourse = ({
 	setCreateCourse,
