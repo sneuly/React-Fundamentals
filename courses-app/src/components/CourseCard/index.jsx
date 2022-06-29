@@ -37,8 +37,7 @@ const CourseCard = ({ course }) => {
 };
 
 CourseCard.propTypes = {
-	courses: PropTypes.array,
-	authors: PropTypes.array,
+	course: PropTypes.object,
 };
 
 export default CourseCard;

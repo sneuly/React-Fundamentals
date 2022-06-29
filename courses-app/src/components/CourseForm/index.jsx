@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { Button, Input, Textarea } from '../../common';
 
 import { AuthorItem } from '../';
@@ -126,6 +128,25 @@ const CourseForm = ({
 			</div>
 		</section>
 	);
+};
+
+CourseForm.propTypes = {
+	keyword: PropTypes.string,
+	title: PropTypes.string,
+	description: PropTypes.string,
+	duration: PropTypes.string,
+	authors: PropTypes.array,
+	newAuthorName: PropTypes.string,
+	courseAuthors: PropTypes.array,
+	setKeyword: PropTypes.func,
+	handleReset: PropTypes.func,
+	handleChange: PropTypes.func,
+	handleCourseCreate: PropTypes.func,
+	handleRedirectToCourses: PropTypes.func,
+	handleAuthorCreate: PropTypes.func,
+	onAddAuthorClick: PropTypes.func,
+	onRemoveAuthorClick: PropTypes.func,
+	getCourseDuration: PropTypes.func,
 };
 
 export default CourseForm;

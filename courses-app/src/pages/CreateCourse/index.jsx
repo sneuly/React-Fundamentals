@@ -146,11 +146,10 @@ const CreateCourse = ({
 };
 
 CreateCourse.propTypes = {
-	courses: PropTypes.array,
 	setCourses: PropTypes.func,
-	authors: PropTypes.array,
 	setAuthors: PropTypes.func,
 	setCreateCourse: PropTypes.func,
+	existingAuthors: PropTypes.array,
 };
 
 export default CreateCourse;

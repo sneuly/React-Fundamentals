@@ -25,9 +25,9 @@ const SearchBar = ({ keyword, setKeyword, handleReset, handleSubmit }) => {
 };
 
 SearchBar.propTypes = {
-	courses: PropTypes.array,
-	setError: PropTypes.func,
-	setDisplayedCourses: PropTypes.func,
+	keyword: PropTypes.string,
+	setKeyword: PropTypes.func,
+	handleReset: PropTypes.func,
 };
 
 export default SearchBar;

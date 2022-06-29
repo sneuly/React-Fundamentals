@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { CourseCard } from '../';
+import { CourseCard } from '..';
 
 const CourseListing = ({ courses }) => {
 	return (
@@ -14,7 +14,6 @@ const CourseListing = ({ courses }) => {
 
 CourseListing.propTypes = {
 	courses: PropTypes.array,
-	authors: PropTypes.array,
 };
 
 export default CourseListing;
